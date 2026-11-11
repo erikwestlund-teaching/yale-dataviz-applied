@@ -1,0 +1,19 @@
+---
+title: "Categorical Data"
+---
+
+## Task
+
+Use the Census race and ethnicity file and its codebook to compare counts, category order, and within-state proportions. Compare stacked bars with small multiples for the ten largest states in the file.
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Analysis
+
+```{r}
+
+```

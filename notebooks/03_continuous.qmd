@@ -1,0 +1,19 @@
+---
+title: "Continuous Data"
+---
+
+## Task
+
+Explore adult systolic blood pressure and dietary energy in the NHANES file. Compare histograms, density plots, boxplots, and violin plots. Inspect outliers. Use the country income file for quantiles, Q–Q plots, and log transformations.
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Analysis
+
+```{r}
+
+```

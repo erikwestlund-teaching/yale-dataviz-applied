@@ -1,0 +1,19 @@
+---
+title: "Group Comparison"
+---
+
+## Task
+
+Compare adult blood pressure summaries and distributions across age groups in NHANES. Then compare PRAMS anxiety and depression in the overall state rows with a difference plot. Both PRAMS measures refer to the three months before pregnancy.
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Analysis
+
+```{r}
+
+```

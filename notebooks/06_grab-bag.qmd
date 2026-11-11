@@ -1,0 +1,19 @@
+---
+title: "Process Diagrams and Causal DAGs"
+---
+
+## Task
+
+Draw a study flow diagram and a causal DAG. Specify the assumptions behind each arrow and inspect adjustment sets. Prompts are on the course page.
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Analysis
+
+```{r}
+
+```

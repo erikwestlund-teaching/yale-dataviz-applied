@@ -1,0 +1,19 @@
+---
+title: "Data Preparation"
+---
+
+## Task
+
+Inspect the NHANES analysis file and its codebook. Prepare an adult blood pressure sample, account for excluded rows, and make an ordered count plot.
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+```
+
+## Analysis
+
+```{r}
+
+```

@@ -1,0 +1,139 @@
+---
+title: "Process Diagrams"
+format:
+  html:
+    embed-resources: true
+    toc: true
+---
+
+```{r}
+#| include: false
+library(dplyr)
+library(ggplot2)
+```
+
+# Goal
+
+Show simple process diagrams. R and `ggplot2` can be an effective way to declaratively create figures without point-and-click frustration.
+
+# Mermaid Flow Diagram
+
+Quarto can render Mermaid diagrams directly.
+
+```{mermaid}
+flowchart LR
+  A[Raw data] --> B[Clean variables]
+  B --> C[Define analysis sample]
+  C --> D[Explore patterns]
+  D --> E[Choose final question]
+  E --> F[Polish final figures]
+```
+
+# Simple Causal Structure
+
+```{mermaid}
+flowchart LR
+  Age[Age] --> BP[Blood pressure]
+  Diet[Dietary intake] --> BP
+  Income[Income] --> Diet
+  Income --> BP
+  Sex[Sex] --> BP
+```
+
+# Static process plot
+Use `ggplot2` when you want custom labels, counts, or styling.
+
+<!-- data-prep-anatomy-start -->
+::: {.data-prep-anatomy}
+| Data preparation step | Functions in this chunk |
+|---|---|
+| Keep or remove rows | `filter()` |
+| Create or change columns | `mutate()` |
+:::
+<!-- data-prep-anatomy-end -->
+
+<!-- plot-anatomy-start -->
+::: {.plot-anatomy}
+| Plot component | Code in this chunk |
+|---|---|
+| Aesthetic mappings | `x`; `y`; `xend`; `yend`; `label` |
+| Geoms / stats | `geom_segment()`; `geom_label()` |
+| `geom_segment()` properties | `color` |
+| `geom_label()` properties | `fill`; `linewidth`; `size` |
+| Scales / coordinates / facets / labels | `coord_cartesian()`; `labs()`; `theme_void()`; `theme()` |
+:::
+<!-- plot-anatomy-end -->
+
+```{r}
+#| fig-width: 12
+#| fig-height: 2
+#| out-width: "100%"
+process_steps <- tibble::tibble(
+  step = c("Load", "Clean", "Explore", "Focus", "Communicate"),
+  x = c(1, 3, 5, 7, 9),
+  y = 1,
+  label = c(
+    "Load data",
+    "Clean variables",
+    "Explore plots",
+    "Choose question",
+    "Final figures"
+  )
+)
+
+arrows <- process_steps |>
+  mutate(xend = lead(x), yend = lead(y)) |>
+  filter(!is.na(xend))
+
+p1 <- ggplot() +
+  geom_segment(
+    data = arrows,
+    aes(x = x + 0.65, y = y, xend = xend - 0.65, yend = yend),
+    arrow = grid::arrow(length = grid::unit(0.15, "inches")),
+    color = "gray40"
+  ) +
+  geom_label(
+    data = process_steps,
+    aes(x = x, y = y, label = label),
+    fill = "gray95",
+    linewidth = 0.3,
+    size = 3.5
+  )
+
+p2 <- p1 +
+  coord_cartesian(xlim = c(0.2, 9.8), ylim = c(0.85, 1.15), clip = "off") +
+  labs(title = "A Visualization Workflow Diagram") +
+  theme_void() +
+  theme(plot.title = element_text(face = "bold"))
+
+p2
+```
+
+This is compressed to fit in the notebook; typically you'd want it bigger.
+
+# A Vertical Data Process Diagram
+
+Use this when each step updates the analysis dataset.
+
+The main path shows the updated dataset. Side boxes show records removed at each step.
+
+```{mermaid}
+flowchart TB
+  X0["X0: All records<br/>n = 11933"] --> F1{"Keep adults age 18+"}
+  F1 --> X1["X1: Adults<br/>n = 8153"]
+  F1 --> R1["Removed: age < 18<br/>n = 3780"]
+
+  X1 --> F2{"Require systolic BP"}
+  F2 --> X2["X2: Has systolic BP<br/>n = 6123"]
+  F2 --> R2["Removed: missing BP<br/>n = 2030"]
+
+  X2 --> F3{"Require diet summary"}
+  F3 --> X3["X3: Has diet summary<br/>n = 4868"]
+  F3 --> R3["Removed: missing diet<br/>n = 1255"]
+
+  X3 --> F4{"Require income-to-poverty"}
+  F4 --> X4["X4: Final analysis dataset<br/>n = 4303"]
+  F4 --> R4["Removed: missing income-to-poverty<br/>n = 565"]
+```
+
+
