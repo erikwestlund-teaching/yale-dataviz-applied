@@ -34,6 +34,7 @@ The project includes `viz-explore`, `viz-publish`, `notebooks`, and `packages`. 
 - `inputs/raw/codebooks/`: dataset descriptions, variables, sources, and limitations.
 - `notebooks/`: task stubs for the workshop.
 - `docs/reference/`: 12 worked lessons adapted from Erik's [data visualization course](https://github.com/erikwestlund/data-visualization-2026), with project-relative paths.
+- `docs/reference/ggplot2-dictionary-and-cheatsheet.qmd` and `docs/reference/dplyr-tidyr-dictionary-and-cheatsheet.qmd`: quick references for the `ggplot2`, `dplyr`, and `tidyr` functions used in the lessons.
 - `outputs/`: rendered notebooks and figures. Generated files are excluded from Git.
 
 PRAMS values are pre-aggregated percentages. Alcohol use, binge drinking, depression, and anxiety refer to the three months before pregnancy. The legacy column names contain `birth`. NHANES examples use unweighted teaching summaries. They cannot establish national estimates.
