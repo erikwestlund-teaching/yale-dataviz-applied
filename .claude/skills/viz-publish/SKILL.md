@@ -25,8 +25,8 @@ Use this skill for show ponies: workhorse figures polished for an audience. Appl
 - Use the subtitle and caption to explain measurement, sample size (n), and units. Start the caption with "Source: ".
 - Label groups and relevant observations directly instead of using a legend.
 - Add text annotations that point the reader to what matters.
-- Use color only to highlight. Use Hopkins Heritage Blue (`#002D72`) for the highlight and `grey70` for the rest. Use a colorblind-safe palette when several groups need their own colors.
-- Define a reusable theme function once in the notebook's first chunk. Add it to every figure. Build it on `theme_minimal(base_size = 14)`, remove minor gridlines, and use a plain-weight title.
+- Use color only to highlight. Use the workshop purple (`#7634a6`) for the highlight and `grey70` for the rest. Use a colorblind-safe palette when several groups need their own colors.
+- Define a reusable theme function, `theme_yale_workshop()`, once in the notebook's first chunk. Add it to every figure. Build it on `theme_minimal(base_size = 14)`, remove minor gridlines, and use a plain-weight title.
 - Save every figure with `ggsave()` at an explicit width, height, and unit in `outputs/figures/`. Create the directory if needed.
 - Use associational language. Avoid causal claims and name one limitation.
 - Add a `## Style checks` section listing the rules followed. Describe any rule that does not apply to the figure.
@@ -34,7 +34,7 @@ Use this skill for show ponies: workhorse figures polished for an audience. Appl
 ## Theme example
 
 ```r
-theme_workshop <- function() {
+theme_yale_workshop <- function() {
   theme_minimal(base_size = 14) +
     theme(
       panel.grid.minor = element_blank(),
