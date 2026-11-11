@@ -14,13 +14,13 @@ Applied exercises for Erik Westlund's Yale workshop. Prompts are on the course p
 
 | Notebook | Topic |
 |---|---|
-| `notebooks/style-task.qmd` | Module 3: infant mortality and income for a short report |
-| `notebooks/01_data-preparation.qmd` | Module 4: inspection, filtering, recoding, and counts |
-| `notebooks/02_categorical.qmd` | Module 5: counts, ordering, and proportions |
-| `notebooks/03_continuous.qmd` | Module 6: distributions, outliers, quantiles, and transformations |
-| `notebooks/04_group-comparison.qmd` | Module 7: grouped summaries and differences |
-| `notebooks/05_association.qmd` | Module 8: scatterplots, smoothers, and model predictions |
-| `notebooks/06_grab-bag.qmd` | Module 9: process diagrams and causal DAGs, if time permits |
+| `notebooks/style-task.qmd` | Module 1: infant mortality and income for a short report |
+| `notebooks/01_data-preparation.qmd` | Module 2: inspection, filtering, recoding, and counts |
+| `notebooks/02_categorical.qmd` | Module 3: counts, ordering, and proportions |
+| `notebooks/03_continuous.qmd` | Module 4: distributions, outliers, quantiles, and transformations |
+| `notebooks/04_group-comparison.qmd` | Module 5: grouped summaries and differences |
+| `notebooks/05_association.qmd` | Module 6: scatterplots, smoothers, and model predictions |
+| `notebooks/06_grab-bag.qmd` | Module 7: process diagrams and causal DAGs, if time permits |
 
 The tasks are independent. Each notebook reads its own raw inputs. Data preparation may save a derived file in `inputs/final/` for inspection. The other tasks can run directly from the supplied raw files.
 
