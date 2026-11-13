@@ -26,7 +26,7 @@ The tasks are independent. Each notebook reads its own raw inputs. Data preparat
 
 ## Skills
 
-The project includes `viz-explore`, `viz-publish`, `notebooks`, and `packages`. Their identical copies live in `.claude/skills/` and `.agents/skills/`.
+The project includes `viz-explore`, `viz-polish`, `notebooks`, and `packages`. Their identical copies live in `.claude/skills/` and `.agents/skills/`.
 
 ## Folders
 
